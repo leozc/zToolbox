@@ -14,11 +14,16 @@ namespace zToolbox
     {
         bool addressChanged = true;
         private GetDeepSearch.GetDeepSearchResult searchResult;
-
+        private GetDeepCompSearch.GetDeepCompSearchResult compResult;
         public GetDeepSearch.GetDeepSearchResult SearchResult
         {
             get { return searchResult; }
             set { searchResult = value; }
+        }
+
+        public GetDeepCompSearch.GetDeepCompSearchResult CompResult
+        {
+            get { return compResult; }
         }
 
         private bool closed;
@@ -55,8 +60,41 @@ namespace zToolbox
                         SearchResult = new GetDeepSearch().search(tbAddress.Text);
                         addressChanged = false;
                     }
-                    this.Close();
-                
+                    this.Hide();
+                           
+                }                        
+                catch (Exception ee)
+                {
+                    MessageBox.Show(String.Format("Something went wrong : '{0}'", tbAddress.Text), ee.Message,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    SearchResult = null;
+                }
+            }
+            else
+            {
+                MessageBox.Show(String.Format("'{0}' is not a valid, please make sure you have city state and zip", tbAddress.Text), "Opps .. ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
+
+        private void getCompResult(bool searchResultChanged)
+        {
+            closed = false;
+            String zpid= searchResult.getZpid();
+            if (zpid !=null)
+            {
+                try
+                {
+                    if (SearchResult != null )
+                    {
+                        compResult = new GetDeepCompSearch().search(searchResult.getZpid());
+                        addressChanged = false;
+
+                    }
+                    this.Hide();
+
                 }
                 catch (Exception ee)
                 {
@@ -75,20 +113,35 @@ namespace zToolbox
         /**
          * show dialog and set address
          */
-        public void ShowDialog(String address){
-            this.tbAddress.Text = address;
+        public void PullPropertyInfo(String address){
+            if (address.Length>5) // less chance to get override
+                this.tbAddress.Text = address;
             base.ShowDialog();
         }
         /**
          * show dialog 
-         */
-        public void ShowDialog(){
-            base.ShowDialog();
+        */
+        public void PullPropertyInfo()
+        {
+            if (this.addressChanged || searchResult == null)
+                base.ShowDialog();
         }
+        public void PullComps()
+        {
+            bool searchResultChanged = false;
+            if (addressChanged || searchResult == null){
+                searchResultChanged = true;
+                PullPropertyInfo();
+            }
+            //ensure search resule is valid
+            if (searchResult != null)
+                getCompResult(searchResultChanged);
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             closed = true;
-            this.Close();
+            this.Hide();
         }
     }
 }

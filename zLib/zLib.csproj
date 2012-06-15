@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetDeepCompSearch.cs" />
     <Compile Include="GetDeepSearch.cs" />
     <Compile Include="AddressParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

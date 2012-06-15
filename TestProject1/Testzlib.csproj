@@ -45,6 +45,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestDeepCompSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestAddress.cs" />
     <Compile Include="TestGetDeepSearch.cs" />
