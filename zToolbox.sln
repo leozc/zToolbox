@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zToolbox", "zToolbox\zToolbox.csproj", "{B935A18F-96AC-4BC2-86F1-AAA3EBF3B30A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zLib", "zLib\zLib.csproj", "{BE761F8A-CFC9-40A0-96B6-532A936530E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testzlib", "TestProject1\Testzlib.csproj", "{B9948D2F-D791-4B77-81BD-17413947C306}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{40D92E43-182B-447C-974D-9AAB8579D24C}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+		zToolbox.vsmdi = zToolbox.vsmdi
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "zToolBoxInstaller", "zToolBoxInstaller\zToolBoxInstaller.vdproj", "{EAA14D41-8833-411B-B2F9-B8F99EBB8D64}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = zToolbox.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B935A18F-96AC-4BC2-86F1-AAA3EBF3B30A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B935A18F-96AC-4BC2-86F1-AAA3EBF3B30A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B935A18F-96AC-4BC2-86F1-AAA3EBF3B30A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B935A18F-96AC-4BC2-86F1-AAA3EBF3B30A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE761F8A-CFC9-40A0-96B6-532A936530E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE761F8A-CFC9-40A0-96B6-532A936530E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE761F8A-CFC9-40A0-96B6-532A936530E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE761F8A-CFC9-40A0-96B6-532A936530E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9948D2F-D791-4B77-81BD-17413947C306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9948D2F-D791-4B77-81BD-17413947C306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9948D2F-D791-4B77-81BD-17413947C306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9948D2F-D791-4B77-81BD-17413947C306}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAA14D41-8833-411B-B2F9-B8F99EBB8D64}.Debug|Any CPU.ActiveCfg = Debug
+		{EAA14D41-8833-411B-B2F9-B8F99EBB8D64}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
