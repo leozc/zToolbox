@@ -24,7 +24,12 @@ namespace zToolbox
             get
             {
                 if (stateForm == null)
+                {
                     stateForm = new PullSearchResultForm(null);
+                    stateForm.TbAddress.TextChanged +=
+                        delegate(object o, EventArgs args) { addresstb.Text = ((TextBox) o).Text; };
+
+                }
                 return stateForm;
             }
             set { stateForm = value; }
@@ -73,7 +78,7 @@ namespace zToolbox
             }
         }
 
-        private void openinzillow_Click(object sender, RibbonControlEventArgs e)
+        private void zFacts_click(object sender, RibbonControlEventArgs e)
         {
             var inspector = Globals.ThisAddIn.Application.ActiveInspector();
             var m = ((MailItem)inspector.CurrentItem);
@@ -205,8 +210,8 @@ namespace zToolbox
                                 {
                                     if (ee.Error == null)
                                     {   m.Display(false);
-                                        //d.Application.Selection.InsertFile(randomFileName);
-                                        var image = d.Shapes.AddPicture(randomFileName, false,  true, url.ToString(),d.Application.Selection.Range);
+                                        d.Application.Selection.InsertFile(randomFileName);
+                                        var image = d.Shapes.AddPicture(randomFileName, true,  true, url.ToString(),d.Application.Selection.Range);
                                         var f = image.ConvertToInlineShape();
                                         d.Application.Selection.Hyperlinks.Add(f,url.ToString());
                                     }
@@ -248,7 +253,7 @@ namespace zToolbox
                     int nrColumn = 1;
                     t.Cell(nrRow, nrColumn++).Range.Text = "Property Id";
                     t.Cell(nrRow, nrColumn++).Range.Text = "Address";
-                    t.Cell(nrRow, nrColumn++).Range.Text = "YearBuilt;";
+                    t.Cell(nrRow, nrColumn++).Range.Text = "YearBuilt";
                     t.Cell(nrRow, nrColumn++).Range.Text = "Lot Size";
                     t.Cell(nrRow, nrColumn++).Range.Text = "Livable Size";
                     t.Cell(nrRow, nrColumn++).Range.Text = "Bedrooms";
@@ -286,7 +291,7 @@ namespace zToolbox
             }
         }
 
-        private void button1_Click(object sender, RibbonControlEventArgs e)
+        private void pullCompMap_click(object sender, RibbonControlEventArgs e)
         {
             var inspector = Globals.ThisAddIn.Application.ActiveInspector();
             var m = ((MailItem)inspector.CurrentItem);
@@ -319,8 +324,8 @@ namespace zToolbox
                                 if (ee.Error == null)
                                 {
                                     m.Display(false);
-                                    //d.Application.Selection.InsertFile(randomFileName);
-                                    var image = d.Shapes.AddPicture(randomFileName, false, true, url.ToString(), d.Application.Selection.Range);
+                                    d.Application.Selection.InsertFile(randomFileName);
+                                    var image = d.Shapes.AddPicture(randomFileName, true, true, url.ToString(), d.Application.Selection.Range);
                                     var f = image.ConvertToInlineShape();
                                     d.Application.Selection.Hyperlinks.Add(f, url.ToString());
                                 }
@@ -330,6 +335,13 @@ namespace zToolbox
                     }
                 }
             }
+        }
+
+        private void zAddressBoxChanged(object sender, RibbonControlEventArgs e)
+        {
+           // StateForm.SetNewAddress(addresstb.Text);
+            
+           
         }
 
 

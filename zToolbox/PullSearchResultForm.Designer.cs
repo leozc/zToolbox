@@ -1,4 +1,6 @@
-﻿namespace zToolbox
+﻿using System.Windows.Forms;
+
+namespace zToolbox
 {
     partial class PullSearchResultForm
     {
@@ -129,6 +131,11 @@
         }
 
         #endregion
+
+        public TextBox TbAddress
+        {
+            get { return tbAddress; }
+        }
 
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.Label label1;

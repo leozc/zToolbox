@@ -43,7 +43,11 @@ namespace zToolbox
             SearchResult = null;
         }
       
-        void tbAddress_TextChanged(object sender, EventArgs e)
+        public void SetNewAddress(String s)
+        {
+            tbAddress.Text = s;
+        }
+        public void tbAddress_TextChanged(object sender, EventArgs e)
         {
             addressChanged = true;
         }
@@ -114,7 +118,7 @@ namespace zToolbox
          * show dialog and set address
          */
         public void PullPropertyInfo(String address){
-            if (address.Length>5) // less chance to get override
+            if (address.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries).Count()>4) // at least 4 words
                 this.tbAddress.Text = address;
             base.ShowDialog();
         }
