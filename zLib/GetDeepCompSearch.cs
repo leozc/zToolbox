@@ -10,6 +10,9 @@ using System.Xml.Linq;
 
 namespace zLib
 {
+    /**
+     * A service caller for deep comp interface
+     */
     public class GetDeepCompSearch
     {
         private String ep = @"http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=X1-ZWz1brb7wpucqz_2doog&count=10&";

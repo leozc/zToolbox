@@ -28,6 +28,18 @@ namespace TestzLib
             Assert.AreEqual("98052", a.Zip);
             Assert.AreEqual("18338 28th NE", a.AddressLine );
             Assert.AreEqual("WA", a.State);
+
+        }
+
+        [TestMethod]
+        public void medium2()
+        {
+            Address a = new AddressParser("18338 28th NE, Redmond 98052 WA").parseAddress();
+            Assert.AreEqual("Redmond", a.City);
+            Assert.AreEqual("98052", a.Zip);
+            Assert.AreEqual("18338 28th NE", a.AddressLine);
+            Assert.AreEqual("WA", a.State);
+
         }
 
         [TestMethod]

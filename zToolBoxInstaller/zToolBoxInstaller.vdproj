@@ -39,6 +39,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_24423A344905BAC9C5FC6B2B8C7FE036"
+        "OwnerKey" = "8:_538759493AB24653A02B4255FD80D24E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2CFB5A2A405F494DAE16A295E0A25AD5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -58,12 +64,6 @@
         "Entry"
         {
         "MsmKey" = "8:_40550C1CBE2ED8DC524BA2ABA2F2DF58"
-        "OwnerKey" = "8:_538759493AB24653A02B4255FD80D24E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_41F4B94A11F97098390F0E61CA6C7B29"
         "OwnerKey" = "8:_538759493AB24653A02B4255FD80D24E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -118,19 +118,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_241078B1C16FAF6789861D85856D11DE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_41F4B94A11F97098390F0E61CA6C7B29"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_538759493AB24653A02B4255FD80D24E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_24423A344905BAC9C5FC6B2B8C7FE036"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -173,6 +167,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_40550C1CBE2ED8DC524BA2ABA2F2DF58"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_241078B1C16FAF6789861D85856D11DE"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -378,6 +378,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_24423A344905BAC9C5FC6B2B8C7FE036"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:zLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_24423A344905BAC9C5FC6B2B8C7FE036"
+                    {
+                    "Name" = "8:zLib.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:zLib.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0723EB81B6FF48A7A424B7EDAFCB7B57"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2CFB5A2A405F494DAE16A295E0A25AD5"
             {
             "SourcePath" = "8:..\\zToolbox\\bin\\Debug\\zToolbox.dll.manifest"
@@ -412,37 +443,6 @@
                     }
                 }
             "SourcePath" = "8:Microsoft.Office.Tools.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_0723EB81B6FF48A7A424B7EDAFCB7B57"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_41F4B94A11F97098390F0E61CA6C7B29"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:zLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_41F4B94A11F97098390F0E61CA6C7B29"
-                    {
-                    "Name" = "8:zLib.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:zLib.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0723EB81B6FF48A7A424B7EDAFCB7B57"
@@ -647,20 +647,6 @@
         }
         "LaunchCondition"
         {
-            "{836E08B8-0285-4809-BA42-01DB6754A45D}:_E0A5AAB9AC1B489D90AAE828EFFE80A5"
-            {
-            "Name" = "8:Verify Office 2010 Shared PIA availability"
-            "Condition" = "8:VSTORUNTIMEREDIST"
-            "Message" = "8:A required component for interacting with Excel is not available. Please run setup.exe"
-            "InstallUrl" = "8:"
-            }
-            "{836E08B8-0285-4809-BA42-01DB6754A45D}:_E6FFE19466A14EBC9477403A4FC5E6A5"
-            {
-            "Name" = "8:Verify VSTO 2010 Runtime availability"
-            "Condition" = "8:VSTORUNTIMEREDIST>=\"10.0.30319\""
-            "Message" = "8:The Visual Studio 2010 Tools for Office Runtime is not installed. Please run Setup.exe."
-            "InstallUrl" = "8:"
-            }
         }
         "Locator"
         {
@@ -696,15 +682,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:zToolBoxInstaller"
-        "ProductCode" = "8:{40A3B25D-F4E1-43E8-A5FF-132B792073F5}"
-        "PackageCode" = "8:{4BEE98E5-7DD8-4AF1-9F23-10073C2426F1}"
+        "ProductCode" = "8:{D13DB49C-089C-4AC4-9E2C-A7A52D95C972}"
+        "PackageCode" = "8:{07B2861A-AB46-41C5-830E-214DF6FB1599}"
         "UpgradeCode" = "8:{151928D6-9D2F-4CE0-9CFD-B60E7A056385}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:0.1"
         "Manufacturer" = "8:Default Company Name"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
