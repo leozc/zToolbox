@@ -144,7 +144,7 @@ namespace zLib
         }
         
 
-        public String ToString()
+        public override String ToString()
         {
             return String.Join(" ", new string[] {addressLine, City, state, zip});
         }

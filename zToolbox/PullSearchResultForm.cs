@@ -28,17 +28,17 @@ namespace zToolbox
 
         private bool closed;
 
-        public bool Closed
+        public new bool Closed
         {
-            get { return closed; }
-            set { closed = value; }
+            get { return this.closed; }
+            set { this.closed = value; }
         }
 
         public PullSearchResultForm(String address)
         {
             
             InitializeComponent();
-            tbAddress.Text = address==null?"2607 Western Ave APT 1201 Seattle, WA 98121":address;
+            this.tbAddress.Text = address==null?"2607 Western Ave APT 1201 Seattle, WA 98121":address;
             tbAddress.TextChanged += new EventHandler(tbAddress_TextChanged);
             SearchResult = null;
         }
@@ -61,7 +61,7 @@ namespace zToolbox
             {
                 try
                 {   if(SearchResult==null || addressChanged){
-                        SearchResult = new GetDeepSearch().search(tbAddress.Text);
+                    SearchResult = new GetDeepSearch().search(tbAddress.Text,SettingForm.GetZWID());
                         addressChanged = false;
                     }
                     this.Hide();
@@ -93,7 +93,7 @@ namespace zToolbox
                 {
                     if (SearchResult != null )
                     {
-                        compResult = new GetDeepCompSearch().search(searchResult.getZpid());
+                        compResult = new GetDeepCompSearch().search(searchResult.getZpid(), SettingForm.GetZWID());
                         addressChanged = false;
 
                     }

@@ -12,10 +12,10 @@ namespace zLib
 {
     public class GetDeepSearch
     {
-        private String ep = @"http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz1brb7wpucqz_2doog&";
-        public GetDeepSearchResult search(String address)
+        private String ep = @"http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id={0}&";
+        public GetDeepSearchResult search(String address,String zwid)
         {
-          
+            ep = String.Format(ep, zwid);
             Address addrObj = new AddressParser(address).parseAddress();
             using (WebClient client = new WebClient())
             {

@@ -36,22 +36,26 @@
         {
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.addresstb = this.Factory.CreateRibbonEditBox();
-            this.group2 = this.Factory.CreateRibbonGroup();
             this.zLinkB = this.Factory.CreateRibbonButton();
             this.zEstimate = this.Factory.CreateRibbonButton();
             this.factsheet = this.Factory.CreateRibbonButton();
             this.getCompTable = this.Factory.CreateRibbonButton();
             this.gMap = this.Factory.CreateRibbonButton();
             this.button1 = this.Factory.CreateRibbonButton();
+            this.group2 = this.Factory.CreateRibbonGroup();
+            this.addresstb = this.Factory.CreateRibbonEditBox();
+            this.group3 = this.Factory.CreateRibbonGroup();
+            this.button2 = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.group2.SuspendLayout();
+            this.group3.SuspendLayout();
             // 
             // tab1
             // 
             this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tab1.Groups.Add(this.group1);
+            this.tab1.Groups.Add(this.group3);
             this.tab1.Groups.Add(this.group2);
             this.tab1.Label = "zToolbox";
             this.tab1.Name = "tab1";
@@ -66,21 +70,6 @@
             this.group1.Items.Add(this.button1);
             this.group1.Label = "common";
             this.group1.Name = "group1";
-            // 
-            // addresstb
-            // 
-            this.addresstb.Enabled = false;
-            this.addresstb.Label = "Address:";
-            this.addresstb.Name = "addresstb";
-            this.addresstb.ShowLabel = false;
-            this.addresstb.SizeString = "\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"";
-            this.addresstb.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.zAddressBoxChanged);
-            // 
-            // group2
-            // 
-            this.group2.Items.Add(this.addresstb);
-            this.group2.Label = "Context Address";
-            this.group2.Name = "group2";
             // 
             // zLinkB
             // 
@@ -113,7 +102,7 @@
             // 
             this.getCompTable.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.getCompTable.Image = global::zToolbox.Properties.Resources._4feca402f9cb8bcf5bf2015cb2b7be9f_1_;
-            this.getCompTable.Label = "Comps";
+            this.getCompTable.Label = "zComps";
             this.getCompTable.Name = "getCompTable";
             this.getCompTable.ShowImage = true;
             this.getCompTable.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.getCompTable_Click);
@@ -136,6 +125,38 @@
             this.button1.ShowImage = true;
             this.button1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.pullCompMap_click);
             // 
+            // group2
+            // 
+            this.group2.Items.Add(this.addresstb);
+            this.group2.Label = "Context Address";
+            this.group2.Name = "group2";
+            // 
+            // addresstb
+            // 
+            this.addresstb.Enabled = false;
+            this.addresstb.Label = "Address:";
+            this.addresstb.Name = "addresstb";
+            this.addresstb.ScreenTip = "The current Address in Context, use zLink feature to set this";
+            this.addresstb.ShowLabel = false;
+            this.addresstb.SizeString = "\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"";
+            this.addresstb.Text = null;
+            // 
+            // group3
+            // 
+            this.group3.Items.Add(this.button2);
+            this.group3.Label = "Settings";
+            this.group3.Name = "group3";
+            // 
+            // button2
+            // 
+            this.button2.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button2.Image = global::zToolbox.Properties.Resources.sett2;
+            this.button2.Label = "Credential";
+            this.button2.Name = "button2";
+            this.button2.ScreenTip = "Set ZWID and other settings";
+            this.button2.ShowImage = true;
+            this.button2.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.setting_click);
+            // 
             // zToolRibbon
             // 
             this.Name = "zToolRibbon";
@@ -149,6 +170,8 @@
             this.group1.PerformLayout();
             this.group2.ResumeLayout(false);
             this.group2.PerformLayout();
+            this.group3.ResumeLayout(false);
+            this.group3.PerformLayout();
 
         }
 
@@ -164,6 +187,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button1;
         internal Microsoft.Office.Tools.Ribbon.RibbonEditBox addresstb;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group3;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton button2;
     }
 
     partial class ThisRibbonCollection

@@ -15,10 +15,11 @@ namespace zLib
      */
     public class GetDeepCompSearch
     {
-        private String ep = @"http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=X1-ZWz1brb7wpucqz_2doog&count=10&";
-        public GetDeepCompSearchResult search(String zpid)
+        private String ep = @"http://www.zillow.com/webservice/GetDeepComps.htm?zws-id={0}&count=10&";
+        public GetDeepCompSearchResult search(String zpid,String zwid)
         {
-          
+
+            ep = String.Format(ep, zwid);
             using (WebClient client = new WebClient())
             {
                 client.Headers["User-Agent"] =

@@ -15,7 +15,7 @@ namespace TestProject1
         public void TestMethod1()
         {
             // to do, I need to fix this unit test which pass in the XML instead of a service(service result can change)
-           var ret = new GetDeepSearch().search(@"18338 28 st remond 98052 wa");
+           var ret = new GetDeepSearch().search(@"18338 28 st remond 98052 wa","X1-ZWz1brb7wpucqz_2doog");
            String p = ret.getHDP();
            Assert.AreEqual(p, @"http://www.zillow.com/homedetails/18338-NE-28th-St-Redmond-WA-98052/54829671_zpid/");
 

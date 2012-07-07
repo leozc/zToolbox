@@ -15,7 +15,7 @@ namespace TestProject1
         [TestMethod]
         public void TestMethod1()
         {
-            var ret = new GetDeepCompSearch().search(@"54829671");
+            var ret = new GetDeepCompSearch().search(@"54829671","X1-ZWz1brb7wpucqz_2doog");
             var comps = ret.GetComparables();
             Assert.AreEqual(11, comps.Count);
             foreach (var c in comps)

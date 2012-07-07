@@ -261,14 +261,17 @@ namespace zToolbox
                     t.Cell(nrRow, nrColumn++).Range.Text = "Last Sold Date";
                     t.Cell(nrRow, nrColumn++).Range.Text = "Last Sold Price";
                     t.Cell(nrRow, nrColumn++).Range.Text = "Zestimate";
-                    t.Cell(nrRow, nrColumn++).Range.Text = "Zillow HDP";
+                    //t.Cell(nrRow, nrColumn++).Range.Text = "Zillow HDP";
                     nrRow++;
 
 
                     foreach (var c in r.GetComparables())
                     {
                         nrColumn = 1;
-                        t.Cell(nrRow, nrColumn++).Range.Text = c.Id;
+                        t.Cell(nrRow, nrColumn).Range.Hyperlinks.Add(t.Cell(nrRow, nrColumn).Range, c.Hdp,
+                                                                     TextToDisplay: c.Id);
+                        //t.Cell(nrRow, nrColumn++).Range.Text = c.Id;
+                        nrColumn++;
                         t.Cell(nrRow, nrColumn++).Range.Text = c.Address;
                         t.Cell(nrRow, nrColumn++).Range.Text = c.YearBuilt;
                         t.Cell(nrRow, nrColumn++).Range.Text = c.LotsizeSqft;
@@ -278,8 +281,8 @@ namespace zToolbox
                         t.Cell(nrRow, nrColumn++).Range.Text = c.LastsoldDate;
                         t.Cell(nrRow, nrColumn++).Range.Text = c.LastsoldPricel;
                         t.Cell(nrRow, nrColumn++).Range.Text = c.Zestimate;
-                        t.Cell(nrRow, nrColumn).Range.Hyperlinks.Add(t.Cell(nrRow, nrColumn).Range, c.Hdp,
-                                                                     TextToDisplay: "Chech Out Zillow");
+                        //t.Cell(nrRow, nrColumn).Range.Hyperlinks.Add(t.Cell(nrRow, nrColumn).Range, c.Hdp,
+                        //                                             TextToDisplay: "Chech Out Zillow");
                         nrRow++;
                     }
                    
@@ -337,11 +340,13 @@ namespace zToolbox
             }
         }
 
-        private void zAddressBoxChanged(object sender, RibbonControlEventArgs e)
+       
+
+        private void setting_click(object sender, RibbonControlEventArgs e)
         {
-           // StateForm.SetNewAddress(addresstb.Text);
-            
-           
+            SettingForm f =new SettingForm();
+            if(f.ShowDialog()==DialogResult.OK)
+                this.StateForm = null; // invalidate state
         }
 
 

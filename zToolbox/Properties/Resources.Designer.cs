@@ -87,5 +87,12 @@ namespace zToolbox.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap sett2 {
+            get {
+                object obj = ResourceManager.GetObject("sett2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
