@@ -36,20 +36,20 @@
         {
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
+            this.group3 = this.Factory.CreateRibbonGroup();
+            this.group2 = this.Factory.CreateRibbonGroup();
+            this.addresstb = this.Factory.CreateRibbonEditBox();
             this.zLinkB = this.Factory.CreateRibbonButton();
             this.zEstimate = this.Factory.CreateRibbonButton();
             this.factsheet = this.Factory.CreateRibbonButton();
             this.getCompTable = this.Factory.CreateRibbonButton();
             this.gMap = this.Factory.CreateRibbonButton();
             this.button1 = this.Factory.CreateRibbonButton();
-            this.group2 = this.Factory.CreateRibbonGroup();
-            this.addresstb = this.Factory.CreateRibbonEditBox();
-            this.group3 = this.Factory.CreateRibbonGroup();
             this.button2 = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
-            this.group2.SuspendLayout();
             this.group3.SuspendLayout();
+            this.group2.SuspendLayout();
             // 
             // tab1
             // 
@@ -71,59 +71,11 @@
             this.group1.Label = "common";
             this.group1.Name = "group1";
             // 
-            // zLinkB
+            // group3
             // 
-            this.zLinkB.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.zLinkB.Image = global::zToolbox.Properties.Resources._4feca402f9cb8bcf5bf2015cb2b7be9f_1_;
-            this.zLinkB.Label = "zLink";
-            this.zLinkB.Name = "zLinkB";
-            this.zLinkB.ShowImage = true;
-            this.zLinkB.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.zLinkB_Click);
-            // 
-            // zEstimate
-            // 
-            this.zEstimate.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.zEstimate.Image = global::zToolbox.Properties.Resources._4feca402f9cb8bcf5bf2015cb2b7be9f_1_;
-            this.zEstimate.Label = "zEstimate";
-            this.zEstimate.Name = "zEstimate";
-            this.zEstimate.ShowImage = true;
-            this.zEstimate.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.zEstimate_Click);
-            // 
-            // factsheet
-            // 
-            this.factsheet.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.factsheet.Image = global::zToolbox.Properties.Resources._4feca402f9cb8bcf5bf2015cb2b7be9f_1_;
-            this.factsheet.Label = "zFacts";
-            this.factsheet.Name = "factsheet";
-            this.factsheet.ShowImage = true;
-            this.factsheet.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.zFacts_click);
-            // 
-            // getCompTable
-            // 
-            this.getCompTable.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.getCompTable.Image = global::zToolbox.Properties.Resources._4feca402f9cb8bcf5bf2015cb2b7be9f_1_;
-            this.getCompTable.Label = "zComps";
-            this.getCompTable.Name = "getCompTable";
-            this.getCompTable.ShowImage = true;
-            this.getCompTable.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.getCompTable_Click);
-            // 
-            // gMap
-            // 
-            this.gMap.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.gMap.Image = global::zToolbox.Properties.Resources.GOOG;
-            this.gMap.Label = "Property Map";
-            this.gMap.Name = "gMap";
-            this.gMap.ShowImage = true;
-            this.gMap.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.gMap_Click);
-            // 
-            // button1
-            // 
-            this.button1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.button1.Image = global::zToolbox.Properties.Resources.GOOG;
-            this.button1.Label = "Comp Map";
-            this.button1.Name = "button1";
-            this.button1.ShowImage = true;
-            this.button1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.pullCompMap_click);
+            this.group3.Items.Add(this.button2);
+            this.group3.Label = "Settings";
+            this.group3.Name = "group3";
             // 
             // group2
             // 
@@ -141,11 +93,65 @@
             this.addresstb.SizeString = "\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"";
             this.addresstb.Text = null;
             // 
-            // group3
+            // zLinkB
             // 
-            this.group3.Items.Add(this.button2);
-            this.group3.Label = "Settings";
-            this.group3.Name = "group3";
+            this.zLinkB.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.zLinkB.Image = global::zToolbox.Properties.Resources._4feca402f9cb8bcf5bf2015cb2b7be9f_1_;
+            this.zLinkB.Label = "zLink";
+            this.zLinkB.Name = "zLinkB";
+            this.zLinkB.ScreenTip = "Highlight Address or input address for the search";
+            this.zLinkB.ShowImage = true;
+            this.zLinkB.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.zLinkB_Click);
+            // 
+            // zEstimate
+            // 
+            this.zEstimate.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.zEstimate.Image = global::zToolbox.Properties.Resources._4feca402f9cb8bcf5bf2015cb2b7be9f_1_;
+            this.zEstimate.Label = "zEstimate";
+            this.zEstimate.Name = "zEstimate";
+            this.zEstimate.ScreenTip = "Get Zillow Estimate";
+            this.zEstimate.ShowImage = true;
+            this.zEstimate.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.zEstimate_Click);
+            // 
+            // factsheet
+            // 
+            this.factsheet.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.factsheet.Image = global::zToolbox.Properties.Resources._4feca402f9cb8bcf5bf2015cb2b7be9f_1_;
+            this.factsheet.Label = "zFacts";
+            this.factsheet.Name = "factsheet";
+            this.factsheet.ScreenTip = "Get Property Facts from Zillow";
+            this.factsheet.ShowImage = true;
+            this.factsheet.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.zFacts_click);
+            // 
+            // getCompTable
+            // 
+            this.getCompTable.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.getCompTable.Image = global::zToolbox.Properties.Resources._4feca402f9cb8bcf5bf2015cb2b7be9f_1_;
+            this.getCompTable.Label = "zComps";
+            this.getCompTable.Name = "getCompTable";
+            this.getCompTable.ScreenTip = "Pull down the comp of a property";
+            this.getCompTable.ShowImage = true;
+            this.getCompTable.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.getCompTable_Click);
+            // 
+            // gMap
+            // 
+            this.gMap.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.gMap.Image = global::zToolbox.Properties.Resources.GOOG;
+            this.gMap.Label = "Property Map";
+            this.gMap.Name = "gMap";
+            this.gMap.ScreenTip = "The map shows the property";
+            this.gMap.ShowImage = true;
+            this.gMap.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.gMap_Click);
+            // 
+            // button1
+            // 
+            this.button1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.button1.Image = global::zToolbox.Properties.Resources.GOOG;
+            this.button1.Label = "Comp Map";
+            this.button1.Name = "button1";
+            this.button1.ScreenTip = "Map for the comparisons";
+            this.button1.ShowImage = true;
+            this.button1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.pullCompMap_click);
             // 
             // button2
             // 
@@ -168,10 +174,10 @@
             this.tab1.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
-            this.group2.ResumeLayout(false);
-            this.group2.PerformLayout();
             this.group3.ResumeLayout(false);
             this.group3.PerformLayout();
+            this.group2.ResumeLayout(false);
+            this.group2.PerformLayout();
 
         }
 

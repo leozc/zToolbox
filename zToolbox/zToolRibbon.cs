@@ -71,7 +71,7 @@ namespace zToolbox
                     }
                     else
                     {
-                        MessageBox.Show(String.Format("'{0}' is not a valid for zillow reason: {1}", address,
+                        MessageBox.Show(String.Format("'{0}' is not a valid. Please click setting and make sure you have valid ZWID.  reason: {1}", address,
                                                       r.getMessage()));
                     }
                 }
@@ -281,8 +281,6 @@ namespace zToolbox
                         t.Cell(nrRow, nrColumn++).Range.Text = c.LastsoldDate;
                         t.Cell(nrRow, nrColumn++).Range.Text = c.LastsoldPricel;
                         t.Cell(nrRow, nrColumn++).Range.Text = c.Zestimate;
-                        //t.Cell(nrRow, nrColumn).Range.Hyperlinks.Add(t.Cell(nrRow, nrColumn).Range, c.Hdp,
-                        //                                             TextToDisplay: "Chech Out Zillow");
                         nrRow++;
                     }
                    
