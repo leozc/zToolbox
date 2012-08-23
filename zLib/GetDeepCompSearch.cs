@@ -16,7 +16,7 @@ namespace zLib
     public class GetDeepCompSearch
     {
         private String ep = @"http://www.zillow.com/webservice/GetDeepComps.htm?zws-id={0}&count=10&";
-        public GetDeepCompSearchResult search(String zpid,String zwid)
+        public GetDeepCompSearchResult search(String zpid, String zwid)
         {
 
             ep = String.Format(ep, zwid);
@@ -35,7 +35,7 @@ namespace zLib
 
         public class GetDeepCompSearchResult
         {
-            string m(String s )
+            string m(String s)
             {
                 return String.Format("${0:c}", s);
             }
@@ -48,10 +48,10 @@ namespace zLib
 
             public bool IsValid()
             {
-                return unknownOrValue(doc.SelectSingleNode("//message/code"))=="0";
+                return unknownOrValue(doc.SelectSingleNode("//message/code")) == "0";
 
             }
-            public String  GetMessage()
+            public String GetMessage()
             {
                 return unknownOrValue(doc.SelectSingleNode("//message/text"));
 
@@ -66,7 +66,7 @@ namespace zLib
                         comp_results = GetComparables();
                     return comp_results;
                 }
-            } 
+            }
             public IList<Comp> GetComparables()
             {
                 var nodes = doc.SelectNodes("//response/properties/comparables/comp");
@@ -79,27 +79,27 @@ namespace zLib
                     foreach (XmlNode n in nodes)
                     {
 
-                        var c = createCompEntry(n, "comp_"+i++);
+                        var c = createCompEntry(n, "comp_" + i++);
                         results.Add(c);
                     }
                 }
 
-                
+
                 return results;
-                
+
             }
             private String unknownOrValue(XmlNode n)
             {
                 return n == null ? "Unknown" : n.InnerText;
             }
-            private  Comp createCompEntry(XmlNode n, String id)
+            private Comp createCompEntry(XmlNode n, String id)
             {
                 var hdp = unknownOrValue(n.SelectSingleNode("links/homedetails"));
                 var zestimate = m(unknownOrValue(n.SelectSingleNode("zestimate/amount")));
-                
+
                 var lastSoldDate = unknownOrValue(n.SelectSingleNode("lastSoldDate"));
 
-                var lastSoldPrice = m( unknownOrValue(n.SelectSingleNode("lastSoldPrice")));
+                var lastSoldPrice = m(unknownOrValue(n.SelectSingleNode("lastSoldPrice")));
                 var bedrooms = unknownOrValue(n.SelectSingleNode("bedrooms"));
                 var bathrooms = unknownOrValue(n.SelectSingleNode("bathrooms"));
                 var finishedSqFt = unknownOrValue(n.SelectSingleNode("finishedSqFt"));
@@ -109,9 +109,9 @@ namespace zLib
                 var taxAssessmentYear = unknownOrValue(n.SelectSingleNode("taxAssessmentYear"));
                 var lat = unknownOrValue(n.SelectSingleNode("address/latitude"));
                 var logg = unknownOrValue(n.SelectSingleNode("address/longitude"));
-                var address = unknownOrValue(n.SelectSingleNode("address/street")) +", "+ unknownOrValue(n.SelectSingleNode("address/city"));
+                var address = unknownOrValue(n.SelectSingleNode("address/street")) + ", " + unknownOrValue(n.SelectSingleNode("address/city"));
 
-                Comp c = new Comp(address,hdp, zestimate, lastSoldPrice, lastSoldDate, bedrooms, bathrooms, finishedSqFt, lotSizeSqFt,
+                Comp c = new Comp(address, hdp, zestimate, lastSoldPrice, lastSoldDate, bedrooms, bathrooms, finishedSqFt, lotSizeSqFt,
                                   yearBuilt, taxAssessmentYear, taxAssessment, lat, logg);
                 c.Id = id;
                 return c;
@@ -133,8 +133,8 @@ namespace zLib
                 private string lat;
                 private string longg;
                 private string id;
-                private String address; 
-                public Comp(string address, string hdp, string zestimate, string lastsoldPricel, string lastsoldDate, string bedrooms, string bathrooms, string finishedSqft, string lotsizeSqft, string yearBuilt, string taxAssessmentYear, string taxAccessment,string lat,string longg)
+                private String address;
+                public Comp(string address, string hdp, string zestimate, string lastsoldPricel, string lastsoldDate, string bedrooms, string bathrooms, string finishedSqft, string lotsizeSqft, string yearBuilt, string taxAssessmentYear, string taxAccessment, string lat, string longg)
                 {
                     this.address = address;
                     this.hdp = hdp;
@@ -156,7 +156,7 @@ namespace zLib
                 public String Address
                 {
                     get { return address; }
-                    
+
                 }
                 public string Id
                 {
@@ -230,7 +230,7 @@ namespace zLib
                 }
             }
 
-            private enum Color : uint { green=0, black=1, brown=2, purple=3, yellow=4, blue=5, gray=6, orange=7, red=8, white=9, pink=10};
+            private enum Color : uint { green = 0, black = 1, brown = 2, purple = 3, yellow = 4, blue = 5, gray = 6, orange = 7, red = 8, white = 9, pink = 10 };
 
             public String GetGoogleMapStr()
             {
@@ -239,11 +239,11 @@ namespace zLib
                 int coloridx = 0;
                 foreach (var c in this.Comp_results)
                 {
-                    var m = string.Format(mark, ((Color) coloridx).ToString(), c.Id.Last(), c.Lat, c.Longg);
+                    var m = string.Format(mark, ((Color)coloridx).ToString(), c.Id.Last(), c.Lat, c.Longg);
                     markList.Add(m);
                     coloridx++;
                 }
-                
+
                 var urlTemplate = "http://maps.googleapis.com/maps/api/staticmap?center={0}&zoom=13&size=600x300&maptype=roadmap&{0}&sensor=false";
                 var url = String.Format(urlTemplate, String.Join("&", markList.ToArray()));
                 return url;

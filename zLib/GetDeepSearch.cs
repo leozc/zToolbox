@@ -13,7 +13,7 @@ namespace zLib
     public class GetDeepSearch
     {
         private String ep = @"http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id={0}&";
-        public GetDeepSearchResult search(String address,String zwid)
+        public GetDeepSearchResult search(String address, String zwid)
         {
             ep = String.Format(ep, zwid);
             Address addrObj = new AddressParser(address).parseAddress();
@@ -23,18 +23,18 @@ namespace zLib
                 "Mozilla/4.0 (Compatible; Windows NT 5.1; MSIE 6.0) " +
                 "(compatible; MSIE 6.0; Windows NT 5.1; " +
                 ".NET CLR 1.1.4322; .NET CLR 2.0.50727)";
-                String url = String.Format("{0}address={1}&citystatezip={2}&rentzestimate=true", ep, HttpUtility.UrlEncode(addrObj.AddressLine),HttpUtility.UrlEncode(
-                              addrObj. getCityStateZip()));
+                String url = String.Format("{0}address={1}&citystatezip={2}&rentzestimate=true", ep, HttpUtility.UrlEncode(addrObj.AddressLine), HttpUtility.UrlEncode(
+                              addrObj.getCityStateZip()));
                 String s = client.DownloadString(url);
                 return new GetDeepSearchResult(s);
-                
+
             }
 
         }
 
         public class GetDeepSearchResult
         {
-            string m(String s )
+            string m(String s)
             {
                 return String.Format("${0:c}", s);
             }
@@ -47,10 +47,10 @@ namespace zLib
 
             public bool isValid()
             {
-                return doc.SelectSingleNode("//message/code").InnerText=="0";
+                return doc.SelectSingleNode("//message/code").InnerText == "0";
 
             }
-            public String  getMessage()
+            public String getMessage()
             {
                 return doc.SelectSingleNode("//message/text").InnerText;
 
@@ -58,7 +58,7 @@ namespace zLib
             public String getHDP()
             {
                 return doc.SelectSingleNode("//response/results/result/links/homedetails").InnerText;
-                
+
             }
             public String getComparables()
             {

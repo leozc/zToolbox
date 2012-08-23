@@ -36,13 +36,13 @@ namespace zToolbox
 
         public PullSearchResultForm(String address)
         {
-            
+
             InitializeComponent();
-            this.tbAddress.Text = address==null?"2607 Western Ave APT 1201 Seattle, WA 98121":address;
+            this.tbAddress.Text = address == null ? "2607 Western Ave APT 1201 Seattle, WA 98121" : address;
             tbAddress.TextChanged += new EventHandler(tbAddress_TextChanged);
             SearchResult = null;
         }
-      
+
         public void SetNewAddress(String s)
         {
             tbAddress.Text = s;
@@ -52,7 +52,7 @@ namespace zToolbox
             addressChanged = true;
         }
 
-        
+
         private void process_button_click(object sender, EventArgs e)
         {
             closed = false;
@@ -60,13 +60,15 @@ namespace zToolbox
             if (valid)
             {
                 try
-                {   if(SearchResult==null || addressChanged){
-                    SearchResult = new GetDeepSearch().search(tbAddress.Text,SettingForm.GetZWID());
+                {
+                    if (SearchResult == null || addressChanged)
+                    {
+                        SearchResult = new GetDeepSearch().search(tbAddress.Text, SettingForm.GetZWID());
                         addressChanged = false;
                     }
                     this.Hide();
-                           
-                }                        
+
+                }
                 catch (Exception ee)
                 {
                     MessageBox.Show(String.Format("Something went wrong : '{0}'", tbAddress.Text), ee.Message,
@@ -86,12 +88,12 @@ namespace zToolbox
         private void getCompResult(bool searchResultChanged)
         {
             closed = false;
-            String zpid= searchResult.getZpid();
-            if (zpid !=null)
+            String zpid = searchResult.getZpid();
+            if (zpid != null)
             {
                 try
                 {
-                    if (SearchResult != null )
+                    if (SearchResult != null)
                     {
                         compResult = new GetDeepCompSearch().search(searchResult.getZpid(), SettingForm.GetZWID());
                         addressChanged = false;
@@ -117,8 +119,9 @@ namespace zToolbox
         /**
          * show dialog and set address
          */
-        public void PullPropertyInfo(String address){
-            if (address.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries).Count()>4) // at least 4 words
+        public void PullPropertyInfo(String address)
+        {
+            if (address.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Count() > 4) // at least 4 words
                 this.tbAddress.Text = address;
             base.ShowDialog();
         }
@@ -133,7 +136,8 @@ namespace zToolbox
         public void PullComps()
         {
             bool searchResultChanged = false;
-            if (addressChanged || searchResult == null){
+            if (addressChanged || searchResult == null)
+            {
                 searchResultChanged = true;
                 PullPropertyInfo();
             }
